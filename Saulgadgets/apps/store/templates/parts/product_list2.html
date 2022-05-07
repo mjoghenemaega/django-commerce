@@ -1,0 +1,26 @@
+
+                {%  for p in list_products  %}
+                  <div class="showcase">
+
+                    <a  href="{% url 'product_detail'   p.category.slug    p.slug %}" class="showcase-img-box">
+                      <img src="{{ p.get_thumbnail }}" alt="{{ p.title }}" width="70" class="showcase-img">
+                    </a>
+
+                    <div class="showcase-content">
+
+                      <a  href="{% url 'product_detail'   p.category.slug    p.slug %}">
+                        <h4 class="showcase-title">{{ p.title }}</h4>
+                      </a>
+
+                      <a  href="{% url 'product_detail'   p.category.slug    p.slug %}" class="showcase-category">{{ p.category }}</a>
+
+                      <div class="price-box">
+                        <p class="price">${{p.price|floatformat:2}}</p>
+                        <del>$12.00</del>
+                      </div>
+
+                    </div>
+
+                  </div>
+                  
+                {% endfor  %}

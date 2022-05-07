@@ -1,0 +1,50 @@
+
+
+                {%  for p in list_products  %}
+                
+  <li class="showcase" style="position: relative; " >
+
+    <div class="showcase-banner">
+
+
+      <a href="{% url 'product_detail'   p.category.slug    p.slug %}" >
+       
+      <img class="flash-image" src="{{ p.get_thumbnail }}" alt="{{p.title}}.jpg" style="width: 90%;" class="product-img default">
+      </a>
+       
+    
+    {% if p.discount %}
+      <p class="showcase-badge2">-{{p.discount}}%</p>
+      {% endif %}
+
+      
+    </div>
+
+    <div class="showcase-content">
+
+      <a  class="showcase-category">{{p.category}}</a>
+
+      <h3>
+        <a  href="{% url 'product_detail'   p.category.slug    p.slug %}" 
+          class="showcase-title">{{p.title}}</a>
+      </h3>
+
+      <div class="showcase-rating">
+        <ion-icon name="star"></ion-icon>
+        <ion-icon name="star"></ion-icon>
+        <ion-icon name="star"></ion-icon>
+        <ion-icon name="star-outline"></ion-icon>
+        <ion-icon name="star-outline"></ion-icon>
+      </div>
+
+      <div class="price-box">
+        <p class="price">${{p.price|floatformat:2}}</p>
+        <del>$75.00</del>
+      </div>
+
+    </div>
+
+  </li>
+  
+
+  {% endfor %} 

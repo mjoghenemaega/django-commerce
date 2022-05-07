@@ -1,0 +1,835 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block link %}
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<style>
+    a { text-decoration: none; }
+    .swal-icon img{
+   margin-left: 44%;
+  width: 60px;
+  height: 60px;
+}
+</style>
+{% endblock %}
+{% block content %}
+    <!--
+      - PRODUCT
+    -->
+    <div class="container">
+
+
+      <nav class="breadcrumbs " style="width:100%; margin-top: 1rem; margin-bottom: 2rem; font-size: 0.8rem;"  >
+        <a href="{% url 'frontpage' %}" class="breadcrumbs__item">Home</a>
+        <a href="{% url 'myaccount' %}" class="breadcrumbs__item is_active">myaccount</a> 
+        
+       
+      </nav>
+    </div>
+
+    <div class="product-container">
+
+      <div class="container">
+
+
+        <!--
+          - SIDEBAR
+        -->
+        <div class="sidebar  has-scrollbar" data-mobile-menu>
+
+          <div class="sidebar-category">
+
+            <div class="sidebar-top">
+              <h2 class="sidebar-title">Category</h2>
+
+              <button class="sidebar-close-btn" data-mobile-menu-close-btn>
+                <ion-icon name="close-outline"></ion-icon>
+              </button>
+            </div>
+
+            <ul class="sidebar-menu-category-list">
+
+              <li class="sidebar-menu-category">
+
+                <button class="sidebar-accordion-menu" data-accordion-btn>
+
+                  <div class="menu-title-flex">
+                    <img src="{% static 'assets/images/icons/iphones.svg' %}" alt="Phones" width="20" height="20"
+                      class="menu-title-img">
+
+                    <p class="menu-title">Phones</p>
+                  </div>
+
+                  <div>
+                    <ion-icon name="add-outline" class="add-icon"></ion-icon>
+                    <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
+                  </div>
+
+                </button>
+
+                <ul class="sidebar-submenu-category-list" data-accordion>
+
+                  <li class="sidebar-submenu-category">
+                    <a href="#" class="sidebar-submenu-title">
+                      <p class="product-name">Samsung</p>
+                      <data value="300" class="stock" title="Available Stock">300</data>
+                    </a>
+                  </li>
+
+                  <li class="sidebar-submenu-category">
+                    <a href="#" class="sidebar-submenu-title">
+                      <p class="product-name">Htc</p>
+                      <data value="60" class="stock" title="Available Stock">60</data>
+                    </a>
+                  </li>
+
+                  <li class="sidebar-submenu-category">
+                    <a href="#" class="sidebar-submenu-title">
+                      <p class="product-name">Techno</p>
+                      <data value="50" class="stock" title="Available Stock">50</data>
+                    </a>
+                  </li>
+
+                  <li class="sidebar-submenu-category">
+                    <a href="#" class="sidebar-submenu-title">
+                      <p class="product-name">xiaomi</p>
+                      <data value="87" class="stock" title="Available Stock">87</data>
+                    </a>
+                  </li>
+
+                </ul>
+
+              </li>
+
+              <li class="sidebar-menu-category">
+
+                <button class="sidebar-accordion-menu" data-accordion-btn>
+
+                  <div class="menu-title-flex">
+                    <img src="{% static 'assets/images/icons/laptop.svg' %}" alt="laptop" class="menu-title-img" width="20"
+                      height="20">
+
+                    <p class="menu-title">Laptops</p>
+                  </div>
+
+                  <div>
+                    <ion-icon name="add-outline" class="add-icon"></ion-icon>
+                    <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
+                  </div>
+
+                </button>
+
+                <ul class="sidebar-submenu-category-list" data-accordion>
+
+                  <li class="sidebar-submenu-category">
+                    <a href="#" class="sidebar-submenu-title">
+                      <p class="product-name">Apple</p>
+                      <data value="45" class="stock" title="Available Stock">45</data>
+                    </a>
+                  </li>
+
+                  <li class="sidebar-submenu-category">
+                    <a href="#" class="sidebar-submenu-title">
+                      <p class="product-name">Hp</p>
+                      <data value="75" class="stock" title="Available Stock">75</data>
+                    </a>
+                  </li>
+
+                  <li class="sidebar-submenu-category">
+                    <a href="#" class="sidebar-submenu-title">
+                      <p class="product-name">Alienware</p>
+                      <data value="35" class="stock" title="Available Stock">35</data>
+                    </a>
+                  </li>
+
+                  <li class="sidebar-submenu-category">
+                    <a href="#" class="sidebar-submenu-title">
+                      <p class="product-name">LG</p>
+                      <data value="26" class="stock" title="Available Stock">26</data>
+                    </a>
+                  </li>
+
+                </ul>
+
+              </li>
+
+              <li class="sidebar-menu-category">
+
+                <button class="sidebar-accordion-menu" data-accordion-btn>
+
+                  <div class="menu-title-flex">
+                    <img src="{% static 'assets/images/icons/gamepad.svg' %}" alt="gamepad" class="menu-title-img" width="20"
+                      height="20">
+
+                    <p class="menu-title">Accessories</p>
+                  </div>
+
+                  <div>
+                    <ion-icon name="add-outline" class="add-icon"></ion-icon>
+                    <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
+                  </div>
+
+                </button>
+
+                <ul class="sidebar-submenu-category-list" data-accordion>
+
+                  <li class="sidebar-submenu-category">
+                    <a href="#" class="sidebar-submenu-title">
+                      <p class="product-name">Earphones</p>
+                      <data value="46" class="stock" title="Available Stock">46</data>
+                    </a>
+                  </li>
+
+                  <li class="sidebar-submenu-category">
+                    <a href="#" class="sidebar-submenu-title">
+                      <p class="product-name">Screen</p>
+                      <data value="73" class="stock" title="Available Stock">73</data>
+                    </a>
+                  </li>
+
+                  <li class="sidebar-submenu-category">
+                    <a href="#" class="sidebar-submenu-title">
+                      <p class="product-name">Ports</p>
+                      <data value="61" class="stock" title="Available Stock">61</data>
+                    </a>
+                  </li>
+
+                </ul>
+
+              </li>
+
+              <li class="sidebar-menu-category">
+
+                <button class="sidebar-accordion-menu" data-accordion-btn>
+
+                  <div class="menu-title-flex">
+                    <img src="{% static 'assets/images/icons/drone.svg' %}" alt="drones" class="menu-title-img" width="20"
+                      height="20">
+
+                    <p class="menu-title">Drones</p>
+                  </div>
+
+                  <div>
+                    <ion-icon name="add-outline" class="add-icon"></ion-icon>
+                    <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
+                  </div>
+
+                </button>
+
+                <ul class="sidebar-submenu-category-list" data-accordion>
+
+                  <li class="sidebar-submenu-category">
+                    <a href="#" class="sidebar-submenu-title">
+                      <p class="product-name">Mavic</p>
+                      <data value="12" class="stock" title="Available Stock">12 pcs</data>
+                    </a>
+                  </li>
+
+                  <li class="sidebar-submenu-category">
+                    <a href="#" class="sidebar-submenu-title">
+                      <p class="product-name">Espcopter</p>
+                      <data value="60" class="stock" title="Available Stock">60 pcs</data>
+                    </a>
+                  </li>
+
+                  <li class="sidebar-submenu-category">
+                    <a href="#" class="sidebar-submenu-title">
+                      <p class="product-name">Hp</p>
+                      <data value="50" class="stock" title="Available Stock">50 pcs</data>
+                    </a>
+                  </li>
+
+                  <li class="sidebar-submenu-category">
+                    <a href="#" class="sidebar-submenu-title">
+                      <p class="product-name">Tools</p>
+                      <data value="87" class="stock" title="Available Stock">87 pcs</data>
+                    </a>
+                  </li>
+
+                </ul>
+
+              </li>
+
+              <li class="sidebar-menu-category">
+
+                <button class="sidebar-accordion-menu" data-accordion-btn>
+
+                  <div class="menu-title-flex">
+                    <img src="{% static 'assets/images/icons/tools.svg' %}" alt="tools" class="menu-title-img" width="20"
+                      height="20">
+
+                    <p class="menu-title">Tools</p>
+                  </div>
+
+                  <div>
+                    <ion-icon name="add-outline" class="add-icon"></ion-icon>
+                    <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
+                  </div>
+
+                </button>
+
+                <ul class="sidebar-submenu-category-list" data-accordion>
+
+                  <li class="sidebar-submenu-category">
+                    <a href="#" class="sidebar-submenu-title">
+                      <p class="product-name">pin</p>
+                      <data value="68" class="stock" title="Available Stock">68</data>
+                    </a>
+                  </li>
+
+                  <li class="sidebar-submenu-category">
+                    <a href="#" class="sidebar-submenu-title">
+                      <p class="product-name">solder</p>
+                      <data value="46" class="stock" title="Available Stock">46</data>
+                    </a>
+                  </li>
+
+                  <li class="sidebar-submenu-category">
+                    <a href="#" class="sidebar-submenu-title">
+                      <p class="product-name">charger</p>
+                      <data value="23" class="stock" title="Available Stock">23</data>
+                    </a>
+                  </li>
+
+                </ul>
+
+              </li>
+
+              <li class="sidebar-menu-category">
+
+                <button class="sidebar-accordion-menu" data-accordion-btn>
+
+                  <div class="menu-title-flex">
+                    <img src="{% static 'assets/images/icons/gameconsole.svg' %}" alt="gameconsole" class="menu-title-img" width="20"
+                      height="20">
+
+                    <p class="menu-title">Game consoles </p>
+                  </div>
+
+                  <div>
+                    <ion-icon name="add-outline" class="add-icon"></ion-icon>
+                    <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
+                  </div>
+
+                </button>
+
+                <ul class="sidebar-submenu-category-list" data-accordion>
+
+                  <li class="sidebar-submenu-category">
+                    <a href="#" class="sidebar-submenu-title">
+                      <p class="product-name">Playstation</p>
+                      <data value="50" class="stock" title="Available Stock">50</data>
+                    </a>
+                  </li>
+
+                  <li class="sidebar-submenu-category">
+                    <a href="#" class="sidebar-submenu-title">
+                      <p class="product-name">Heroku</p>
+                      <data value="48" class="stock" title="Available Stock">48</data>
+                    </a>
+                  </li>
+
+                </ul>
+
+              </li>
+
+              <li class="sidebar-menu-category">
+
+                <button class="sidebar-accordion-menu" data-accordion-btn>
+
+                  <div class="menu-title-flex">
+                    <img src="{% static 'assets/images/icons/console.svg' %}" alt="console" class="menu-title-img" width="20" height="20">
+
+                    <p class="menu-title">consoles</p>
+                  </div>
+
+                  <div>
+                    <ion-icon name="add-outline" class="add-icon"></ion-icon>
+                    <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
+                  </div>
+
+                </button>
+
+                <ul class="sidebar-submenu-category-list" data-accordion>
+
+                  <li class="sidebar-submenu-category">
+                    <a href="#" class="sidebar-submenu-title">
+                      <p class="product-name">Hardrives</p>
+                      <data value="62" class="stock" title="Available Stock">62</data>
+                    </a>
+                  </li>
+
+                  <li class="sidebar-submenu-category">
+                    <a href="#" class="sidebar-submenu-title">
+                      <p class="product-name">RAM</p>
+                      <data value="35" class="stock" title="Available Stock">35</data>
+                    </a>
+                  </li>
+
+                  <li class="sidebar-submenu-category">
+                    <a href="#" class="sidebar-submenu-title">
+                      <p class="product-name">flashdrive</p>
+                      <data value="80" class="stock" title="Available Stock">80</data>
+                    </a>
+                  </li>
+
+                  <li class="sidebar-submenu-category">
+                    <a href="#" class="sidebar-submenu-title">
+                      <p class="product-name">memorycards</p>
+                      <data value="75" class="stock" title="Available Stock">75</data>
+                    </a>
+                  </li>
+
+                </ul>
+
+              </li>
+
+            </ul>
+
+          </div>
+
+      
+        </div>
+      
+        <div class=" mt-4">
+            <div class="row">
+                <div class="col-lg-3 my-lg-0 my-md-1">
+                    <div id="sidebar" class="bg-purple">
+                        <div class="h4 text-white">Account</div>
+                        <ul>
+                            <li class="active"> <a href="#" class="text-decoration-none d-flex align-items-start">
+                                    <div class="fas fa-box pt-2 me-3"></div>
+                                    <div class="d-flex flex-column">
+                                        <div class="link">My Account</div>
+                                        <div class="link-desc">View & Manage orders and returns</div>
+                                        <div class="link-desc">View & Manage Addresses</div>
+                                        <div class="link-desc">View & Manage Your profile</div>
+                                        <div class="link-desc">Manage Your passwords and purchased items</div>
+                                    </div>
+                                </a> </li>
+                         
+                           
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-9 my-lg-0 my-1" >
+                    <div id="main-content" class="bg-white border">
+                        <div class="d-flex flex-column">
+                            <div class="h5">Hello {{ request.user.username }}, <span style="float:right">  <a class="btn btn-danger text-uppercase" id="b3" href="{% url 'logout' %}" class="button is-danger">Log out</a></span></div>
+                            <div>Logged in as: {{ request.user.email }}</div>
+                        </div>
+                        <div class="d-flex my-4 flex-wrap">
+                            <div class="box me-4 my-1 bg-light"> <img src="https://www.freepnglogos.com/uploads/box-png/cardboard-box-brown-vector-graphic-pixabay-2.png" alt="">
+                                <div class="d-flex align-items-center mt-2">
+                                    <div class="tag">Orders placed</div>
+                                    <div class="ms-auto number">{{ request.user.orders.all.count}}</div>
+                                </div> 
+                            </div>
+                            <div class="box me-4 my-1 bg-light"> <img src="https://www.freepnglogos.com/uploads/shopping-cart-png/shopping-cart-campus-recreation-university-nebraska-lincoln-30.png" alt="">
+                                <div class="d-flex align-items-center mt-2">
+                                    <div class="tag">Items Purchased</div>
+                                    <div class="ms-auto number"> {{ request.user.orders.all.count}}</div>
+                                </div>
+                            </div>
+    
+                        </div>
+                        <div class="text-uppercase">My recent orders </div>
+                        {% for order in request.user.orders.all %}
+                        
+                    
+                        {% for item in order.items.all %}
+                        <div class="order my-3 bg-light" >
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="d-flex flex-column justify-content-between order-summary">
+                                        <div class="d-flex align-items-center">
+                                            <div class="text-uppercase">Order {{ order.id }}</div>
+                                            <div class="blue-label ms-auto text-uppercase">PAID</div>
+                                        </div>
+                                        <div class="fs-8"> {{ order.id }} </div>
+                                        <div class="fs-8">{{ order.created_at }}</div>
+                                        <div class="rating d-flex align-items-center pt-1"> <img src="https://www.freepnglogos.com/uploads/like-png/like-png-hand-thumb-sign-vector-graphic-pixabay-39.png" alt=""><span class="px-2">Rating:</span> <span class="fas fa-star"></span> <span class="fas fa-star"></span> <span class="fas fa-star"></span> <span class="fas fa-star"></span> <span class="far fa-star"></span> </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-8">
+                                    <div class="d-sm-flex align-items-sm-start justify-content-sm-between">
+                                        <div class="status">Status : {{ order.status }}</div>
+                                        <div class="btn btn-primary text-uppercase">Details</div>
+                                    </div>
+                                    <div class="progressbar-track">
+                                        <ul class="progressbar">
+                                            <li id="step-1" class="text-muted green"> <span class="fas fa-gift"></span> </li>
+                                            <li id="step-2" class="text-muted green"> <span class="fas fa-check"></span> </li>
+                                            <li id="step-3" class="text-muted green"> <span class="fas fa-box"></span> </li>
+                                            <li id="step-4" class="text-muted green"> <span class="fas fa-truck"></span> </li>
+                                            <li id="step-5" class="text-muted green"> <span class="fas fa-box-open"></span> </li>
+                                        </ul>
+                                        <div id="tracker"></div>
+    
+                                    </div>
+                                    <table class="table is-striped is-fullwidth">
+                                        <thead>
+                                            <tr>
+                                                <th>Title</th>
+                                                <th>Quantity</th>
+                                                <th>Price</th>
+                                            </tr>
+                                        </thead>
+                    
+                                        <tbody>
+                                            
+                                                <tr>
+                                                    <td>{{ item.product.title }}</td>
+                                                    <td>{{ item.quantity }}</td>
+                                                    <td>{{ item.price }}</td>
+                                                </tr>
+                                           
+                                        </tbody>
+                    
+                                        <tfoot>
+                                            <tr>
+                                                <td>Total</td>
+                                                <td>{{ order.get_total_quantity }}</td>
+                                                <td>{{ order.paid_amount }}</td>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        {% empty %}
+                        <p>You don't have any order yet...</p>
+                    {% endfor %}
+                        
+                    </div>
+                </div>
+              
+              
+            </div>
+        </div>
+    
+    
+        <style>
+    
+    #sidebar {
+        padding: 15px 0px 15px 0px;
+        border-radius: 10px
+    }
+    
+    #sidebar .h4 {
+        font-weight: 500;
+        padding-left: 15px
+    }
+    
+    #sidebar ul {
+        list-style: none;
+        margin: 0;
+        padding-left: 0rem
+    }
+    
+    #sidebar ul li {
+        padding: 10px 0;
+        display: block;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        border-left: 5px solid transparent
+    }
+    
+    #sidebar ul li.active {
+        border-left: 5px solid #ff5252;
+        background-color: #44007c;
+        text-decoration: none;
+    }
+    
+    #sidebar ul li a {
+        display: block
+    }
+    
+    #sidebar ul li a .fas,
+    #sidebar ul li a .far {
+        color: #ddd
+    }
+    
+    #sidebar ul li a .link {
+        color: #fff;
+        font-weight: 500
+    }
+    
+    #sidebar ul li a .link-desc {
+        font-size: 0.8rem;
+        color: #ddd
+    }
+    
+    #main-content {
+        padding: 30px;
+        border-radius: 15px
+    }
+    
+    #main-content .h5,
+    #main-content .text-uppercase {
+        font-weight: 600;
+        margin-bottom: 0
+    }
+    
+    #main-content .h5+div {
+        font-size: 0.9rem
+    }
+    
+    #main-content .box {
+        padding: 10px;
+        border-radius: 6px;
+        width: 170px;
+        height: 90px
+    }
+    
+    #main-content .box img {
+        width: 40px;
+        height: 40px;
+        object-fit: contain
+    }
+    
+    #main-content .box .tag {
+        font-size: 0.9rem;
+        color: #000;
+        font-weight: 500
+    }
+    
+    #main-content .box .number {
+        font-size: 1.5rem;
+        font-weight: 600
+    }
+    
+    .order {
+        padding: 10px 30px;
+        min-height: 150px
+    }
+    
+    .order .order-summary {
+        height: 100%
+    }
+    
+    .order .blue-label {
+        background-color: #aeaeeb;
+        color: #0046dd;
+        font-size: 0.9rem;
+        padding: 0px 3px
+    }
+    
+    .order .green-label {
+        background-color: #a8e9d0;
+        color: #008357;
+        font-size: 0.9rem;
+        padding: 0px 3px
+    }
+    
+    .order .fs-8 {
+        font-size: 0.85rem
+    }
+    
+    .order .rating img {
+        width: 20px;
+        height: 20px;
+        object-fit: contain
+    }
+    
+    .order .rating .fas,
+    .order .rating .far {
+        font-size: 0.9rem
+    }
+    
+    .order .rating .fas {
+        color: #daa520
+    }
+    
+    .order .status {
+        font-weight: 600
+    }
+    
+    .order .btn.btn-primary {
+        background-color: #fff;
+        color: #4e2296;
+        border: 1px solid #4e2296
+    }
+    
+    .order .btn.btn-primary:hover {
+        background-color: #4e2296;
+        color: #fff
+    }
+    
+    .order .progressbar-track {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        position: relative;
+        z-index: 3;
+    }
+    
+    .order .progressbar-track .progressbar {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-left: 0rem
+    }
+    
+    .order .progressbar-track .progressbar li {
+        font-size: 1.5rem;
+        border: 1px solid #333;
+        padding: 5px 10px;
+        border-radius: 50%;
+        background-color: #dddddd;
+        z-index: 100;
+        position: relative
+    }
+    
+    .order .progressbar-track .progressbar li.green {
+        border: 1px solid #007965;
+        background-color: #d5e6e2
+    }
+    
+    .order .progressbar-track .progressbar li::after {
+        position: absolute;
+        font-size: 0.9rem;
+        top: 50px;
+        left: 0px
+    }
+    
+    #tracker {
+        position: absolute;
+        border-top: 1px solid #bbb;
+        width: 100%;
+        top: 25px
+    }
+    
+    #step-1::after {
+        content: 'Placed'
+    }
+    
+    #step-2::after {
+        content: 'Accepted';
+        left: -10px
+    }
+    
+    #step-3::after {
+        content: 'Packed'
+    }
+    
+    #step-4::after {
+        content: 'Shipped'
+    }
+    
+    #step-5::after {
+        content: 'Delivered';
+        left: -10px
+    }
+    
+    .bg-purple {
+        background-color: #55009b
+    }
+    
+    .bg-light {
+        background-color: #f0ecec !important
+    }
+    
+    .green {
+        color: #007965 !important
+    }
+    
+    @media(max-width: 1199.5px) {
+        nav ul li {
+            padding: 0 10px
+        }
+    }
+    
+    @media(max-width: 500px) {
+        .order .progressbar-track .progressbar li {
+            font-size: 1rem
+        }
+    
+        .order .progressbar-track .progressbar li::after {
+            font-size: 0.8rem;
+            top: 35px
+        }
+    
+        #tracker {
+            top: 20px
+        }
+    }
+    
+    @media(max-width: 440px) {
+        #main-content {
+            padding: 20px
+        }
+    
+        .order {
+            padding: 20px
+        }
+    
+        #step-4::after {
+            left: -5px
+        }
+    }
+    
+    @media(max-width: 395px) {
+        .order .progressbar-track .progressbar li {
+            font-size: 0.8rem
+        }
+    
+        .order .progressbar-track .progressbar li::after {
+            font-size: 0.7rem;
+            top: 35px
+        }
+    
+        #tracker {
+            top: 15px
+        }
+    
+        .order .btn.btn-primary {
+            font-size: 0.85rem
+        }
+    }
+    
+    @media(max-width: 355px) {
+        #main-content {
+            padding: 15px
+        }
+    
+        .order {
+            padding: 10px
+        }
+    }
+        </style>
+
+
+
+        
+           
+        </div>
+</div>
+
+
+{% endblock %}
+
+
+
+
+{% block scripts %}
+<script>
+    document.getElementById('b3').onclick = function(){
+        swal({
+title:"", 
+text:"Logging out...",
+icon: "https://www.boasnotas.com/img/loading2.gif",
+buttons: false,      
+closeOnClickOutside: false,
+timer: 6000,
+
+});
+    };
+    </script>
+   
+             
+{% endblock %}
